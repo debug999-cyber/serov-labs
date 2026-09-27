@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="ru" xml:lang="ru">
+<head>
+    <title>Операционные системы и среды: Настройка загрузчика GRUB2 0709-25-1 | "Sirius LMS"</title>
+    <link rel="shortcut icon" href="https://moodle.siriusuniversity.ru/pluginfile.php/1/core_admin/favicon/64x64/1789985171/favicon.png" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="moodle, Операционные системы и среды: Настройка загрузчика GRUB2 0709-25-1 | "Sirius LMS"" />
+<link rel="stylesheet" type="text/css" href="https://moodle.siriusuniversity.ru/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.css" /><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="https://moodle.siriusuniversity.ru/theme/styles.php/almondb/1789985171_1/all" />
+<link rel="stylesheet" type="text/css" href="https://moodle.siriusuniversity.ru/theme/almondb/style/frontpage.css" />
+<link rel="stylesheet" type="text/css" href="https://moodle.siriusuniversity.ru/theme/almondb/style/splide.min.css" />
+<script>
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/moodle.siriusuniversity.ru","homeurl":{},"sesskey":"rGwd7WW1Cw","sessiontimeout":"28800","sessiontimeoutwarning":"1200","themerev":"1789985171","slasharguments":1,"theme":"almondb","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1789985171","admin":"admin","svgicons":true,"usertimezone":"\u0415\u0432\u0440\u043e\u043f\u0430\/\u041c\u043e\u0441\u043a\u0432\u0430","language":"ru","courseId":80,"courseContextId":2669,"contextid":16655,"contextInstanceId":6902,"langrev":1789985171,"templaterev":"1789985171"};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"https:\/\/moodle.siriusuniversity.ru\/lib\/yuilib\/3.18.1\/","comboBase":"https:\/\/moodle.siriusuniversity.ru\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/moodle.siriusuniversity.ru\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/moodle.siriusuniversity.ru\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/moodle.siriusuniversity.ru\/theme\/yui_combo.php?m\/1789985171\/","combine":true,"comboBase":"https:\/\/moodle.siriusuniversity.ru\/theme\/yui_combo.php?","ext":false,"root":"m\/1789985171\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_customcert-rearrange":{"requires":["dd-delegate","dd-drag"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-qbank_editquestion-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emojipicker-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_h5p-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_html-codemirror":{"requires":["moodle-atto_html-codemirror-skin"]},"moodle-atto_html-button":{"requires":["promise","moodle-editor_atto-plugin","moodle-atto_html-beautify","moodle-atto_html-codemirror","event-valuechange"]},"moodle-atto_html-beautify":{},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/moodle.siriusuniversity.ru\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/moodle.siriusuniversity.ru\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1789985171\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/moodle.siriusuniversity.ru\/lib\/javascript.php\/1789985171\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/moodle.siriusuniversity.ru\/lib\/javascript.php\/1789985171\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]}},"logInclude":[],"logExclude":[],"logLevel":null};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body  id="page-mod-assign-view" class="format-topics limitedwidth  path-mod path-mod-assign safari dir-ltr lang-ru yui-skin-sam yui3-skin-sam moodle-siriusuniversity-ru pagelayout-incourse course-80 context-16655 cmid-6902 cm-type-assign category-6 theme uses-drawers">
+<div class="toast-wrapper mx-auto py-0 fixed-top" role="status" aria-live="polite"></div>
+<div id="page-wrapper" class="d-print-block">
+
+    <div>
+    <a class="sr-only sr-only-focusable" href="#maincontent">Перейти к основному содержанию</a>
+</div><script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/lib/polyfills/polyfill.js"></script>
+<script src="https://moodle.siriusuniversity.ru/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js"></script><script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/lib/javascript-static.js"></script>
+<script>
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<body topmargin=5 leftmargin=5 rightmargin=5 bottommargin=5 oncopy="return false" bgcolor=white text=black>
+
+
+    <nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="Навигация по сайту">
+    
+        <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+            <span class="navbar-toggler-icon"></span>
+            <span class="sr-only">Боковая панель</span>
+        </button>
+        <a href="https://moodle.siriusuniversity.ru/my/" class="navbar-brand d-none d-xl-flex align-items-center m-0 mr-4 p-0 aabtn">
+                <img src="https://moodle.siriusuniversity.ru/pluginfile.php/1/core_admin/logo/0x200/1789985171/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF.png" class="logo mr-1" alt="&quot;Sirius LMS&quot;">
+        </a>
+            <div class="primary-navigation">
+                <nav class="moremenu navigation">
+                    <ul id="moremenu-6ab6841c4f6fb-navbar-nav" role="menubar" class="nav more-nav navbar-nav">
+                                <li data-key="home" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="https://moodle.siriusuniversity.ru/?redirect=0"
+                                                
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Главная
+                                            </a>
+                                </li>
+                                <li data-key="myhome" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="https://moodle.siriusuniversity.ru/my/"
+                                                
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Личный кабинет
+                                            </a>
+                                </li>
+                                <li data-key="mycourses" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="https://moodle.siriusuniversity.ru/my/courses.php"
+                                                
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Мои курсы
+                                            </a>
+                                </li>
+                        <li role="none" class="nav-item dropdown dropdownmoremenu d-none" data-region="morebutton">
+                            <a class="dropdown-toggle nav-link " href="#" id="moremenu-dropdown-6ab6841c4f6fb" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+                                Дополнительно
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" data-region="moredropdown" aria-labelledby="moremenu-dropdown-6ab6841c4f6fb" role="menu">
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    <div class="navbar-nav"><div class="nav-item"><a class="nav-item nav-link" href="https://moodle.siriusuniversity.ru/course/view.php?id=18" target="_self">Опросы</a><div></div></div><div class="nav-item"><a 
+    class="nav-item 
+    nav-link" href="https://conf.siriusuniversity.ru/" target="_self">Сервис BКС</a><div></div></div><div class="nav-item"><a class="nav-item nav-link" href="https://siriusuniversity.ru/" target="_self">Сайт университета</a><div></div></div><div class="nav-item"><a class="nav-item nav-link" href="/course/view.php?id=19" target="_self">Библиотеки</a><div></div></div></div>
+        <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+            <!-- page_heading_menu -->
+            
+        </ul>
+    
+        <div id="usernavigation" class="navbar-nav ml-auto">
+            <div class="popover-region collapsed popover-region-notifications"
+    id="nav-notification-popover-container" data-userid="2129"
+    data-region="popover-region">
+    <div class="popover-region-toggle nav-link icon-no-margin"
+        data-region="popover-region-toggle"
+        role="button"
+        aria-controls="popover-region-container-6ab6841c513bf6ab6841c506802"
+        aria-haspopup="true"
+        aria-label="  Показать окно с новыми уведомлениями (3)  "
+        tabindex="0">
+                <i class="icon fa fa-bell-o fa-fw "  title="Уведомления" role="img" aria-label="Уведомления"></i>
+        <div
+            class="count-container "
+            data-region="count-container"
+            aria-hidden=true
+        >
+            3
+        </div>
+
+    </div>
+    <div 
+        id="popover-region-container-6ab6841c513bf6ab6841c506802"
+        class="popover-region-container"
+        data-region="popover-region-container"
+        aria-expanded="false"
+        aria-hidden="true"
+        aria-label="Окно уведомления"
+        role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">Уведомления</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <a class="mark-all-read-button"
+           href="#"
+           title="Пометить все прочитанным"
+           data-action="mark-all-read"
+           role="button"
+           aria-label="Пометить все прочитанным">
+            <span class="normal-icon"><i class="icon fa fa-check fa-fw " aria-hidden="true"  ></i></span>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+        </a>
+            <a href="https://moodle.siriusuniversity.ru/message/notificationpreferences.php"
+               title="Настройки уведомлений"
+               aria-label="Настройки уведомлений">
+                <i class="icon fa fa-cog fa-fw " aria-hidden="true"  ></i></a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="all-notifications"
+            data-region="all-notifications"
+            role="log"
+            aria-busy="false"
+            aria-atomic="false"
+            aria-relevant="additions"></div>
+        <div class="empty-message" tabindex="0" data-region="empty-message">Уведомлений нет</div>
+
+            </div>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+        </div>
+                <a class="see-all-link"
+                    href="https://moodle.siriusuniversity.ru/message/output/popup/notifications.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">Смотреть все</div>
+                    </div>
+                </a>
+    </div>
+</div><div class="popover-region collapsed" data-region="popover-region-messages">
+    <a id="message-drawer-toggle-6ab6841c51a236ab6841c506803" class="nav-link popover-region-toggle position-relative icon-no-margin" href="#"
+            role="button">
+        <i class="icon fa fa-comment-o fa-fw "  title="Сообщения" role="img" aria-label="Сообщения"></i>
+        <div
+            class="count-container hidden"
+            data-region="count-container"
+        >
+            <span aria-hidden="true">0</span>
+            <span class="sr-only">Непрочитанных бесед: 0</span>
+        </div>
+    </a>
+    <span class="sr-only sr-only-focusable" data-region="jumpto" tabindex="-1"></span></div>
+            <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+                    <div class="usermenu" 
+                        data-toggle="tooltip" data-placement="bottom" 
+                        >
+                            <div class="dropdown show">
+                                <a href="#" role="button" id="user-menu-toggle" data-toggle="dropdown" aria-label="Меню пользователя"
+                                   aria-haspopup="true" aria-controls="user-action-menu" class="btn dropdown-toggle">
+                                    <span class="userbutton">
+                                        <span class="avatars">
+                                                <span class="avatar current">
+                                                    <span class="userinitials size-35">МЗ</span>
+                                                </span>
+                                        </span>
+                                    </span>
+                                </a>
+                                <div id="user-action-menu" class="dropdown-menu dropdown-menu-right">
+                                    <div id="usermenu-carousel" class="carousel slide" data-touch="false" data-interval="false" data-keyboard="false">
+                                        <div class="carousel-inner">
+                                            <div id="carousel-item-main" class="carousel-item active" role="menu" tabindex="-1" aria-label="Пользователь">
+                                                        <a href="https://moodle.siriusuniversity.ru/user/profile.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            О пользователе
+                                                        </a>
+                                                    
+                                                        <a href="https://moodle.siriusuniversity.ru/grade/report/overview/index.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Оценки
+                                                        </a>
+                                                    
+                                                        <a href="https://moodle.siriusuniversity.ru/calendar/view.php?view=month" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Календарь
+                                                        </a>
+                                                    
+                                                        <a href="https://moodle.siriusuniversity.ru/user/files.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Личные файлы
+                                                        </a>
+                                                    
+                                                        <a href="https://moodle.siriusuniversity.ru/reportbuilder/index.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Отчеты
+                                                        </a>
+                                                    
+                                                    <div class="dropdown-divider"></div>
+                                                        <a href="https://moodle.siriusuniversity.ru/user/preferences.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Настройки
+                                                        </a>
+                                                    
+                                                        <a href="#" class="carousel-navigation-link dropdown-item" role="menuitem" tabindex="-1" data-carousel-target-id="carousel-item-6ab6841c4f87e">
+                                                                
+                                                            Язык
+                                                        </a>
+                                                    <div class="dropdown-divider"></div>
+                                                        <a href="https://moodle.siriusuniversity.ru/login/logout.php?sesskey=rGwd7WW1Cw" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Выход
+                                                        </a>
+                                                    
+                                            </div>
+                                                <div id="carousel-item-6ab6841c4f87e" class="carousel-item submenu" tabindex="-1" aria-label="Выбор языка">
+                                                    <div class="d-flex flex-column h-100">
+                                                        <div class="header">
+                                                            <button type="button" class="btn btn-icon carousel-navigation-link text-decoration-none text-body" data-carousel-target-id="carousel-item-main" aria-label="Вернуться в меню пользователя">
+                                                                <span class="dir-rtl-hide"><img class="icon " alt="" aria-hidden="true" src="https://moodle.siriusuniversity.ru/theme/image.php/almondb/core/1789985171/i/arrow-left" /></span>
+                                                                <span class="dir-ltr-hide"><img class="icon " alt="" aria-hidden="true" src="https://moodle.siriusuniversity.ru/theme/image.php/almondb/core/1789985171/i/arrow-right" /></span>
+                                                            </button>
+                                                            <span class="pl-2" id="carousel-item-title-6ab6841c4f87e">Выбор языка</span>
+                                                        </div>
+                                                        <div class="dropdown-divider"></div>
+                                                        <div class="items h-100 overflow-auto" role="menu" aria-labelledby="carousel-item-title-6ab6841c4f87e">
+                                                                    <a href="#" class="dropdown-item pl-5" role="menuitem" tabindex="-1" aria-current="true"
+                                                                        >
+                                                                        Русский ‎(ru)‎
+                                                                    </a>
+                                                                    <a href="https://moodle.siriusuniversity.ru/mod/assign/view.php?id=6902&amp;rownum=0&amp;useridlistid=6ab6841c44c26899994545&amp;action&amp;lang=en" class="dropdown-item pl-5" role="menuitem" tabindex="-1" 
+                                                                        lang="en" >
+                                                                        English ‎(en)‎
+                                                                    </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            
+        </div>
+    </nav>
+    
+
+<div  class="drawer drawer-left drawer-primary d-print-none not-initialized" data-region="fixed-drawer" id="theme_boost-drawers-primary" data-preference="" data-state="show-drawer-primary" data-forceopen="0" data-close-on-resize="1">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_boost-drawers-primary"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Закрыть панель"
+        >
+            <i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i>
+        </button>
+        <div class="drawerheadercontent hidden">
+            
+        </div>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                <div class="list-group">
+                <a href="https://moodle.siriusuniversity.ru/?redirect=0" class="list-group-item list-group-item-action  " >
+                    Главная
+                </a>
+                <a href="https://moodle.siriusuniversity.ru/my/" class="list-group-item list-group-item-action  " >
+                    Личный кабинет
+                </a>
+                <a href="https://moodle.siriusuniversity.ru/my/courses.php" class="list-group-item list-group-item-action  " >
+                    Мои курсы
+                </a>
+            <a href="https://moodle.siriusuniversity.ru/course/view.php?id=18�" class="list-group-item list-group-item-action  " 
+>Опросы</a>
+            <a href="https://conf.siriusuniversity.ru/" class="list-group-item list-group-item-action  " >Сервис BКС</a>
+            <a href="https://siriusuniversity.ru/" class="list-group-item list-group-item-action  " >Сайт университета</a>
+            <a href="/local/almondbpage/?id=a1" class="list-group-item list-group-item-action  " >Библиотеки</a>
+        </div>
+
+    </div>
+</div>
+        <div  class="drawer drawer-left  d-print-none not-initialized" data-region="fixed-drawer" id="theme_boost-drawers-courseindex" data-preference="drawer-open-index" data-state="show-drawer-left" data-forceopen="0" data-close-on-resize="0">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_boost-drawers-courseindex"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Закрыть оглавление курса"
+        >
+            <i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i>
+        </button>
+        <div class="drawerheadercontent hidden">
+            
+        </div>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                        <nav id="courseindex" class="courseindex">
+    <div id="courseindex-content">
+        <div data-region="loading-placeholder-content" aria-hidden="true" id="course-index-placeholder">
+            <ul class="media-list">
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    </div>
+</div>
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers   drag-container">
+        <div id="topofscroll" class="main-inner">
+            <div class="drawer-toggles d-flex">
+                    <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
+                        <button
+                            class="btn icon-no-margin"
+                            data-toggler="drawers"
+                            data-action="toggle"
+                            data-target="theme_boost-drawers-courseindex"
+                            data-toggle="tooltip"
+                            data-placement="right"
+                            title="Открыть оглавление курса"
+                        >
+                            <span class="sr-only">Открыть оглавление курса</span>
+                            <i class="icon fa fa-list fa-fw " aria-hidden="true"  ></i>
+                        </button>
+                    </div>
+            </div>
+            <div class="page-header-wrapper has-course-header-image">
+                <div class="course-header-bg">
+                    <div class="course-header-image" 
+                        style="background-image: url('https://moodle.siriusuniversity.ru/pluginfile.php/2669/course/overviewfiles/OS.png');">
+                    </div>
+                    <div class="course-header-txt mx-2">
+                        <header id="page-header" class="header-maxwidth d-print-none">
+    <div class="w-100">
+        <div class="d-flex flex-wrap">
+            <div id="page-navbar">
+                <nav aria-label="Панель навигации">
+    <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="https://moodle.siriusuniversity.ru/my/"  >Личный кабинет</a>
+                </li>
+        
+                <li class="breadcrumb-item">
+                    <a href="https://moodle.siriusuniversity.ru/my/courses.php"  >Мои курсы</a>
+                </li>
+        
+                <li class="breadcrumb-item">
+                    <a href="https://moodle.siriusuniversity.ru/course/view.php?id=80"  title="Операционные системы и среды">Операционные системы и среды</a>
+                </li>
+        
+                <li class="breadcrumb-item">
+                    <a href="https://moodle.siriusuniversity.ru/course/view.php?id=80#section-2"  >Ядро операционной системы</a>
+                </li>
+        
+                <li class="breadcrumb-item">
+                    <a href="https://moodle.siriusuniversity.ru/mod/assign/view.php?id=6902" aria-current="page" title="Задание">Настройка загрузчика GRUB2 0709-25-1</a>
+                </li>
+        </ol>
+</nav>
+            </div>
+            <div class="ml-auto d-flex">
+                
+            </div>
+            <div id="course-header">
+                
+            </div>
+        </div>
+        <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <div class="page-context-header"><div class="page-header-headings"><h1>Операционные системы и среды</h1></div></div>
+                    </div>
+            <div class="header-actions-container ml-auto" data-region="header-actions-container">
+            </div>
+        </div>
+    </div>
+</header>
+                    </div>
+                </div>    
+            </div>
+
+
+            <div id="page-content" class="pb-3 d-print-block">
+                <div id="region-main-box">
+                    <section id="region-main" aria-label="Содержимое">
+
+                        <span class="notifications" id="user-notifications"></span>
+                            <span id="maincontent"></span>
+                            <div class="activity-header" data-for="page-activity-header">
+                                    <span class="sr-only">Требуемые условия завершения</span>
+                                    <div data-region="activity-information" data-activityname="Настройка загрузчика GRUB2 0709-25-1" class="activity-information">
+
+
+    <div data-region="activity-dates" class="activity-dates">
+            <div>
+                <strong>Открыто с:</strong> понедельник, 14 сентября 2026, 00:00
+            </div>
+            <div>
+                <strong>Срок сдачи:</strong> понедельник, 21 сентября 2026, 23:59
+            </div>
+    </div>
+</div>
+                                    <div class="activity-description" id="intro">
+                                        <div class="box py-3 generalbox boxaligncenter"><div class="no-overflow"><div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f5f5f5; color: #333;">
+<div style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 30px; border-radius: 10px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+<h1 style="color: white; margin: 0; font-size: 28px;">Лабораторная работа №3: Настройка загрузчика GRUB2</h1>
+<p style="margin: 10px 0 0 0; opacity: 0.9;">Изучение процесса загрузки системы и настройки загрузчика GRUB2</p>
+</div>
+<div style="background-color: #e8f4fd; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #3498db;">
+<h2 style="color: #2c3e50;">Цель работы:</h2>
+<p>Изучить процесс загрузки системы, научиться настраивать загрузчик GRUB2, работать с параметрами ядра и понимать их влияние на систему. Научиться самостоятельно определять особенности дистрибутива и применять корректные команды.</p>
+<p><strong>Оборудование:</strong> Виртуальная машина с Linux (Astra Linux, ROSA Linux, Fedora, Ubuntu, Debian и др.)</p>
+<div style="background-color: #fff3cd; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #ffc107;">
+<p style="margin: 0;"><strong>О форме отчётности:</strong> по итогам работы каждый студент сдаёт <strong>отчёт</strong> (файл формата .docx, .odt или .pdf). Шаблон и требования к отчёту приведены в конце документа. Все результаты команд нужно <strong>фиксировать сразу</strong> — копировать вывод терминала в заготовку отчёта по ходу выполнения.</p>
+</div>
+</div>
+<div style="background: white; padding: 25px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 4px solid #e74c3c;">
+<h2 style="color: #2c3e50;">Теоретическая часть</h2>
+<p><strong>Загрузчик GRUB2</strong> - основной загрузчик в современных Linux-системах. Конфигурационные файлы:</p>
+<ul>
+<li><code style="background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Monaco', monospace; color: #d63384;">/boot/grub/grub.cfg</code> или <code style="background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Monaco', monospace; color: #d63384;">/boot/grub2/grub.cfg</code> - основной конфигурационный файл (не редактируется вручную)</li>
+<li><code style="background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Monaco', monospace; color: #d63384;">/etc/default/grub</code> - файл настроек параметров загрузки</li>
+<li><code style="background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Monaco', monospace; color: #d63384;">/etc/grub.d/</code> - каталог со скриптами генерации конфигурации</li>
+</ul>
+<div style="background-color: #fff3cd; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #ffc107;">
+<p style="margin: 0;"><strong>Важно!</strong> Команда обновления GRUB и путь к конфигу различаются в разных дистрибутивах:</p>
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tbody>
+<tr style="background-color: #f8f9fa;">
+<th style="padding: 8px; border: 1px solid #dee2e6; text-align: left;">Дистрибутивы</th>
+<th style="padding: 8px; border: 1px solid #dee2e6; text-align: left;">Команда</th>
+<th style="padding: 8px; border: 1px solid #dee2e6; text-align: left;">Путь к конфигу</th>
+</tr>
+<tr>
+<td style="padding: 8px; border: 1px solid #dee2e6;">Debian, Ubuntu, Astra Linux, Mint</td>
+<td style="padding: 8px; border: 1px solid #dee2e6;"><code>update-grub</code> или <code>grub-mkconfig</code></td>
+<td style="padding: 8px; border: 1px solid #dee2e6;"><code>/boot/grub/grub.cfg</code></td>
+</tr>
+<tr>
+<td style="padding: 8px; border: 1px solid #dee2e6;">Fedora, RHEL, CentOS, ROSA Linux, openSUSE</td>
+<td style="padding: 8px; border: 1px solid #dee2e6;"><code>grub2-mkconfig</code></td>
+<td style="padding: 8px; border: 1px solid #dee2e6;"><code>/boot/grub2/grub.cfg</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div style="background: white; padding: 25px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 4px solid #2ecc71;">
+<h2 style="color: #2c3e50;">Практическая часть</h2>
+<div style="background-color: #f0f7ff; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 3px solid #4dabf7;">
+<h3 style="color: #2c3e50;">Задание 0: Определение дистрибутива и структуры загрузки</h3>
+<p>Прежде чем что-либо менять, выясните, с какой системой вы работаете и как она устроена. Все выводы команд копируйте в заготовку отчёта (раздел «Задание 0»).</p>
+<p>1. Определите дистрибутив:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">cat /etc/os-release</div>
+<p>2. Выясните, какая команда GRUB доступна в вашей системе:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">which update-grub grub-mkconfig grub2-mkconfig</div>
+<p>3. Найдите, где реально лежит конфиг GRUB:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">ls -la /boot/grub/grub.cfg /boot/grub2/grub.cfg 2&gt;/dev/null</div>
+<p>4. Посмотрите текущую разметку диска и точки монтирования:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">lsblk -f</div>
+<p>5. Определите реальные параметры, с которыми загружено ваше ядро (отсюда мы возьмём правильные UUID и имена файлов):</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">cat /proc/cmdline</div>
+<div style="background-color: #fff3cd; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #ffc107;">
+<p style="margin: 0;"><strong>Что зафиксировать в отчёте (Задание 0):</strong></p>
+<ul style="margin: 8px 0 0 0;">
+<li>название и версия дистрибутива;</li>
+<li>доступная команда GRUB и её полный путь;</li>
+<li>путь к реальному конфигу GRUB;</li>
+<li>имя раздела с <code>/boot</code> и его UUID (из <code>lsblk -f</code>);</li>
+<li>UUID корня (<code>/</code>) из вывода <code>cat /proc/cmdline</code> (параметр <code>root=</code>);</li>
+<li>версия загруженного ядра.</li>
+</ul>
+<p style="margin: 8px 0 0 0;">Эти данные понадобятся в задании 2.</p>
+</div>
+</div>
+<div style="background-color: #f0f7ff; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 3px solid #4dabf7;">
+<h3 style="color: #2c3e50;">Задание 1: Исследование текущей конфигурации GRUB</h3>
+<p>1. Изучите текущую конфигурацию GRUB:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">cat /etc/default/grub</div>
+<p>2. Просмотрите сгенерированный файл конфигурации (используйте путь, найденный в задании 0):</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo cat /boot/grub/grub.cfg | head -50<br># или<br>sudo cat /boot/grub2/grub.cfg | head -50</div>
+<p>3. Определите текущие параметры ядра:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">cat /proc/cmdline</div>
+<p>4. Посмотрите, какие скрипты участвуют в генерации конфига:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">ls -la /etc/grub.d/</div>
+<div style="background-color: #fff3cd; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #ffc107;">
+<p style="margin: 0;"><strong>Что зафиксировать в отчёте (Задание 1):</strong> фрагмент <code>/etc/default/grub</code> (первые 30 строк конфига); значение <code>GRUB_CMDLINE_LINUX_DEFAULT</code>; список скриптов из <code>/etc/grub.d/</code>.</p>
+</div>
+</div>
+<div style="background-color: #f0f7ff; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 3px solid #4dabf7;">
+<h3 style="color: #2c3e50;">Задание 2: Добавление нового пункта меню в GRUB</h3>
+<p>1. Создайте резервную копию конфигурации:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo cp /etc/default/grub /etc/default/grub.backup</div>
+<p>2. Добавьте новый пункт меню, создав файл:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo nano /etc/grub.d/40_custom</div>
+<p>3. Добавьте содержимое, <strong>подставив свои значения</strong> из задания 0:</p>
+<ul>
+<li><code>UUID_РАЗДЕЛА_BOOT</code> — UUID раздела с <code>/boot</code> (из <code>lsblk -f</code>);</li>
+<li><code>UUID_КОРНЯ</code> — UUID корневого раздела (из <code>cat /proc/cmdline</code>, параметр <code>root=</code>);</li>
+<li><code>ВЕРСИЯ_ЯДРА</code> — имя файла ядра из <code>ls /boot/</code> (например, <code>6.12.91-generic-24rosa13-x86_64</code>).</li>
+</ul>
+<pre style="background-color: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; border-left: 4px solid #3498db;">#!/bin/sh
+exec tail -n +3 $0
+
+menuentry "Linux (Recovery Mode)" {
+    load_video
+    insmod gzio
+    insmod part_gpt
+    insmod ext2
+    search --no-floppy --fs-uuid --set=root UUID_РАЗДЕЛА_BOOT
+    linux /vmlinuz-ВЕРСИЯ_ЯДРА root=UUID=UUID_КОРНЯ ro single
+    initrd /initrd-ВЕРСИЯ_ЯДРА.img
+}</pre>
+<div style="background-color: #f8d7da; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #dc3545;">
+<p style="margin: 0;"><strong>Обратите внимание!</strong></p>
+<ul style="margin: 8px 0 0 0;">
+<li>В GRUB <strong>нельзя</strong> использовать <code>$(uname -r)</code> — загрузчик не умеет выполнять shell-команды. Версию ядра нужно писать явно.</li>
+<li>Имена файлов ядра и initrd различаются: в Debian/Ubuntu/Astra это <code>/vmlinuz-ВЕРСИЯ</code> и <code>/initrd.img-ВЕРСИЯ</code>, а в Fedora/ROSA/RHEL — <code>/vmlinuz-ВЕРСИЯ</code> и <code>/initrd-ВЕРСИЯ.img</code>. Проверьте командой <code>ls /boot/</code>.</li>
+<li>Путь <code>root=</code> должен быть реальным. Посмотрите его в <code>cat /proc/cmdline</code> и скопируйте оттуда значение <code>root=...</code>.</li>
+</ul>
+</div>
+<p>4. Сделайте файл исполняемым и <strong>проверьте</strong> генерацию во временный файл (чтобы не сломать загрузку):</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo chmod +x /etc/grub.d/40_custom<br>sudo grub2-mkconfig -o /tmp/grub.test # для ROSA/Fedora/RHEL<br>sudo grub-mkconfig -o /tmp/grub.test # для Astra/Ubuntu/Debian</div>
+<p>Если вывод заканчивается словом <code>завершено</code> / <code>done</code> и ошибок нет — применяйте по-настоящему:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo grub2-mkconfig -o /boot/grub2/grub.cfg # ROSA/Fedora/RHEL<br>sudo update-grub # Astra/Ubuntu/Debian<br># или<br>sudo grub-mkconfig -o /boot/grub/grub.cfg # Astra/Ubuntu/Debian</div>
+<p>5. Убедитесь, что запись появилась в конфиге:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">grep -A8 "Recovery Mode" /boot/grub2/grub.cfg<br># или<br>grep -A8 "Recovery Mode" /boot/grub/grub.cfg</div>
+<div style="background-color: #f8d7da; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #dc3545;">
+<p style="margin: 0;"><strong>Если при генерации возникла синтаксическая ошибка</strong> — не применяйте конфиг! Проверьте, что в вашем <code>40_custom</code> нет символов <code>$</code>, не осталось строки <code>exec tail -n +3 $0</code> в начале файла, а пути к ядру и initrd существуют (проверьте <code>ls /boot/</code>).</p>
+</div>
+<div style="background-color: #fff3cd; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #ffc107;">
+<p style="margin: 0;"><strong>Что зафиксировать в отчёте (Задание 2):</strong> итоговое содержимое <code>/etc/grub.d/40_custom</code>; вывод команды генерации (со словом <code>завершено</code>); фрагмент <code>grub.cfg</code> с вашей записью (вывод <code>grep</code>).</p>
+</div>
+</div>
+<div style="background-color: #f0f7ff; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 3px solid #4dabf7;">
+<h3 style="color: #2c3e50;">Задание 3: Изменение параметров ядра</h3>
+<p>1. Отредактируйте файл настроек GRUB:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo nano /etc/default/grub</div>
+<p>2. Найдите строку <code style="background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Monaco', monospace; color: #d63384;">GRUB_CMDLINE_LINUX_DEFAULT</code> и добавьте параметры (значение зависит от дистрибутива — на Astra имеет смысл <code>parsec.max_ilev=63</code>, на других системах этот параметр просто игнорируется):</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">GRUB_CMDLINE_LINUX_DEFAULT="quiet splash net.ifnames=0"</div>
+<p>3. Обновите конфигурацию GRUB (команда — по вашей системе из задания 0):</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo grub2-mkconfig -o /boot/grub2/grub.cfg # ROSA/Fedora/RHEL<br>sudo update-grub # Astra/Ubuntu/Debian</div>
+<p>4. Перезагрузите систему и проверьте новые параметры:</p>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">sudo reboot</div>
+<div style="background-color: #2c3e50; color: #fff; padding: 12px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', 'Monaco', monospace; display: block; border-left: 4px solid #2ecc71;">cat /proc/cmdline</div>
+<p>5. Убедитесь, что добавленный параметр появился в выводе. Если да — задание выполнено верно.</p>
+<div style="background-color: #fff3cd; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #ffc107;">
+<p style="margin: 0;"><strong>Что зафиксировать в отчёте (Задание 3):</strong> строка <code>GRUB_CMDLINE_LINUX_DEFAULT</code> до и после изменения; вывод <code>cat /proc/cmdline</code> после перезагрузки; краткий вывод о том, применился ли параметр.</p>
+</div>
+</div>
+</div>
+<div style="background: white; padding: 25px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 4px solid #f39c12;">
+<h2 style="color: #2c3e50;">Контрольные вопросы</h2>
+<p style="margin-top: 0;">Ответы на вопросы включаются в отчёт (раздел «Ответы на контрольные вопросы»).</p>
+<div style="background-color: #f8f9fa; padding: 12px 15px; margin: 10px 0; border-radius: 5px; border-left: 3px solid #6c757d;">
+<p>1. Для чего нужен параметр <code style="background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Monaco', monospace; color: #d63384;">single</code> при загрузке ядра?</p>
+</div>
+<div style="background-color: #f8f9fa; padding: 12px 15px; margin: 10px 0; border-radius: 5px; border-left: 3px solid #6c757d;">
+<p>2. Чем отличаются команды обновления GRUB в Debian-подобных и RPM-подобных дистрибутивах? Почему нельзя слепо копировать команды из инструкции для другой системы?</p>
+</div>
+<div style="background-color: #f8f9fa; padding: 12px 15px; margin: 10px 0; border-radius: 5px; border-left: 3px solid #6c757d;">
+<p>3. Почему не рекомендуется редактировать файл <code style="background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Monaco', monospace; color: #d63384;">/boot/grub/grub.cfg</code> (или <code>/boot/grub2/grub.cfg</code>) напрямую?</p>
+</div>
+<div style="background-color: #f8f9fa; padding: 12px 15px; margin: 10px 0; border-radius: 5px; border-left: 3px solid #6c757d;">
+<p>4. Почему в записи <code>menuentry</code> нельзя использовать <code>$(uname -r)</code>? Как правильно указать версию ядра?</p>
+</div>
+<div style="background-color: #f8f9fa; padding: 12px 15px; margin: 10px 0; border-radius: 5px; border-left: 3px solid #6c757d;">
+<p>5. Как восстановить исходную конфигурацию GRUB в случае ошибки?</p>
+</div>
+<div style="background-color: #f8f9fa; padding: 12px 15px; margin: 10px 0; border-radius: 5px; border-left: 3px solid #6c757d;">
+<p>6. Как узнать UUID раздела и почему в GRUB предпочтительнее использовать UUID, а не имена вида <code>/dev/sda2</code>?</p>
+</div>
+</div>
+<div style="background: white; padding: 25px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 4px solid #9b59b6;">
+<h2 style="color: #2c3e50;">Шаблон отчёта</h2>
+<p>Отчёт оформляется в виде файла (.docx, .odt или .pdf) со следующей структурой:</p>
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+<p style="margin-top: 0;"><strong>Титульный лист:</strong></p>
+<ul>
+<li>Название учебного заведения, группа, ФИО студента, ФИО преподавателя.</li>
+<li>Название работы: «Лабораторная работа №1. Настройка загрузчика GRUB2».</li>
+<li>Дата выполнения.</li>
+</ul>
+<p><strong>1. Цель работы.</strong> (из раздела «Цель работы»)</p>
+<p><strong>2. Краткие теоретические сведения.</strong> (5–7 предложений своими словами: что такое GRUB2, какие файлы использует, чем отличаются команды в разных дистрибутивах)</p>
+<p><strong>3. Используемое окружение:</strong></p>
+<ul>
+<li>дистрибутив и версия (из <code>/etc/os-release</code>);</li>
+<li>версия ядра (<code>uname -r</code>);</li>
+<li>тип виртуальной машины.</li>
+</ul>
+<p><strong>4. Ход выполнения работы.</strong></p>
+<p><em>Задание 0. Определение дистрибутива и структуры загрузки</em></p>
+<ul>
+<li>Скриншот или текст вывода <code>cat /etc/os-release</code>.</li>
+<li>Результат <code>which update-grub grub-mkconfig grub2-mkconfig</code>.</li>
+<li>Путь к реальному конфигу GRUB.</li>
+<li>Скриншот или текст <code>lsblk -f</code>.</li>
+<li>Скриншот или текст <code>cat /proc/cmdline</code>.</li>
+<li>Вывод: какие UUID и версия ядра будут использоваться далее.</li>
+</ul>
+<p><em>Задание 1. Исследование текущей конфигурации GRUB</em></p>
+<ul>
+<li>Фрагмент <code>/etc/default/grub</code>.</li>
+<li>Значение <code>GRUB_CMDLINE_LINUX_DEFAULT</code>.</li>
+<li>Список файлов <code>/etc/grub.d/</code>.</li>
+</ul>
+<p><em>Задание 2. Добавление нового пункта меню в GRUB</em></p>
+<ul>
+<li>Итоговое содержимое <code>/etc/grub.d/40_custom</code>.</li>
+<li>Вывод команды генерации конфига (со словом <code>завершено</code>).</li>
+<li>Фрагмент <code>grub.cfg</code> с добавленной записью (вывод <code>grep -A8 "Recovery Mode" ...</code>).</li>
+</ul>
+<p><em>Задание 3. Изменение параметров ядра</em></p>
+<ul>
+<li>Строка <code>GRUB_CMDLINE_LINUX_DEFAULT</code> до и после изменения.</li>
+<li>Вывод <code>cat /proc/cmdline</code> после перезагрузки.</li>
+<li>Вывод: применился ли новый параметр.</li>
+</ul>
+<p><strong>5. Ответы на контрольные вопросы.</strong> (по пунктам 1–6, развёрнуто, 2–4 предложения на каждый)</p>
+<p><strong>6. Вывод по работе.</strong> (что получилось, с какими трудностями столкнулись, чем отличаются команды для Astra и ROSA, чему научились)</p>
+<p style="margin-bottom: 0;"><strong>7. Источники.</strong> (использованная документация, man-страницы)</p>
+</div>
+<div style="background-color: #d1ecf1; padding: 12px 15px; margin: 12px 0; border-radius: 5px; border-left: 4px solid #17a2b8;">
+<p style="margin: 0;"><strong>Совет по оформлению:</strong> вывод команд удобно вставлять в отчёт моноширинным шрифтом (Courier New, Consolas, размер 9–10 пт). Скриншоты терминала приветствуются, но текстовый вывод предпочтительнее — его можно проверить на подлинность.</p>
+</div>
+</div>
+</div></div></div>
+                                    </div>
+                                </div>
+                        <div role="main"><div class="container-fluid mb-4">
+    <div class="row">
+        <div class="col-xs-6 mr-3">
+                    <div class="singlebutton">
+                        <form method="get" action="https://moodle.siriusuniversity.ru/mod/assign/view.php" >
+                                <input type="hidden" name="id" value="6902">
+                                <input type="hidden" name="action" value="editsubmission">
+                            <button type="submit" class="btn btn-secondary"
+                                id="single_button6ab6841c506805"
+                                
+                                
+                                >Редактировать ответ</button>
+                        </form>
+                    </div>
+        </div>
+        <div class="col-xs-6">
+                <div class="singlebutton">
+                    <form method="get" action="https://moodle.siriusuniversity.ru/mod/assign/view.php" >
+                            <input type="hidden" name="id" value="6902">
+                            <input type="hidden" name="action" value="removesubmissionconfirm">
+                        <button type="submit" class="btn btn-secondary"
+                            id="single_button6ab6841c506806"
+                            
+                            
+                            >Удалить ответ</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div><div class="submissionstatustable"><h3>Состояние ответа</h3><div class="box py-3 boxaligncenter submissionsummarytable"><div class="table-responsive"><table class="generaltable table-bordered">
+<tbody><tr class="">
+<th class="cell c0" style="" scope="row">Состояние ответа на задание</th>
+<td class="submissionstatussubmitted cell c1 lastcol" style="">Отправлено для оценивания</td>
+</tr>
+<tr class="">
+<th class="cell c0" style="" scope="row">Состояние оценивания</th>
+<td class="submissionnotgraded cell c1 lastcol" style="">Не оценено</td>
+</tr>
+<tr class="">
+<th class="cell c0" style="" scope="row">Оставшееся время</th>
+<td class="earlysubmission cell c1 lastcol" style="">Ответ на задание представлен досрочно на 57 мин. 15 сек.</td>
+</tr>
+<tr class="">
+<th class="cell c0" style="" scope="row">Последнее изменение</th>
+<td class="cell c1 lastcol" style="">понедельник, 21 сентября 2026, 23:01</td>
+</tr>
+<tr class="">
+<th class="cell c0" style="" scope="row">Ответ в виде файла</th>
+<td class="cell c1 lastcol" style=""><div class="box py-3 boxaligncenter plugincontentsummary summary_assignsubmission_file_58988"><div id="assign_files_tree6ab6841c506807"><ul><li yuiConfig='{"type":"html"}'><div><div class="fileuploadsubmission"><img class="icon icon" alt="Отчет лаба 3.odt" title="Отчет лаба 3.odt" src="https://moodle.siriusuniversity.ru/theme/image.php/almondb/core/1789985171/f/writer" /> <a target="_blank" href="https://moodle.siriusuniversity.ru/pluginfile.php/16655/assignsubmission_file/submission_files/58988/%D0%9E%D1%82%D1%87%D0%B5%D1%82%20%D0%BB%D0%B0%D0%B1%D0%B0%203.odt?forcedownload=1">Отчет лаба 3.odt</a>   </div><div class="fileuploadsubmissiontime">21 сентября 2026, 23:01</div></div></li></ul></div></div></td>
+</tr>
+<tr class="lastrow">
+<th class="cell c0" style="" scope="row">Комментарии к ответу</th>
+<td class="cell c1 lastcol" style=""><div class="box py-3 boxaligncenter plugincontentsummary summary_assignsubmission_comments_58988"><div class="commentscontainer"><div style="display:none" id="cmt-tmpl"><div class="comment-message"><div class="comment-message-meta mr-3"><span class="picture">___picture___</span><span class="user">___name___</span> - <span class="time">___time___</span></div><div class="text">___content___</div></div></div><div class="mdl-left"><a class="showcommentsnonjs" href="https://moodle.siriusuniversity.ru/mod/assign/view.php?id=6902&amp;rownum=0&amp;useridlistid=6ab6841c44c26899994545&amp;action&amp;nonjscomment=1&amp;comment_itemid=58988&amp;comment_context=16655&amp;comment_component=assignsubmission_comments&amp;comment_area=submission_comments">Отобразить комментарии</a><a class="comment-link" id="comment-link-6ab6841c5724c" href="#" role="button" aria-expanded="false"><i class="icon fa fa-caret-right fa-fw "  title="Комментарии" role="img" aria-label="Комментарии"></i><span id="comment-link-text-6ab6841c5724c">Комментарии (0)</span></a><div id="comment-ctrl-6ab6841c5724c" class="comment-ctrl"><ul id="comment-list-6ab6841c5724c" class="comment-list"><li class="first"></li></ul><div id="comment-pagination-6ab6841c5724c" class="comment-pagination"></div><div class="comment-area"><div class="db"><label for="dlg-content-6ab6841c5724c" class="sr-only">Комментарий</label><textarea name="content" rows="2" id="dlg-content-6ab6841c5724c" aria-label="Добавить комментарий..." cols="20"></textarea></div><div class="fd" id="comment-action-6ab6841c5724c"><a id="comment-action-post-6ab6841c5724c" href="#">Сохранить комментарий</a><span> | </span><a id="comment-action-cancel-6ab6841c5724c" href="#">Отмена</a></div></div><div class="clearer"></div></div></div></div></div></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div>
+                        
+                        
+
+                    </section>
+                </div>
+            </div>
+        </div>
+        
+        <footer id="page-footer" class="footer-popover bg-white classhide">
+            <div data-region="footer-container-popover">
+                <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="Показать нижний колонтитул">
+                    <i class="icon fa fa-question fa-fw " aria-hidden="true"  ></i>
+                </button>
+            </div>
+            <div class="footer-content-popover container" data-region="footer-content-popover">
+                    <div class="footer-section p-3 border-bottom">
+        
+        
+                            <div><a href="https://moodle.siriusuniversity.ru/user/contactsitesupport.php"><i class="icon fa fa-envelope-o fa-fw " aria-hidden="true"  ></i>Служба поддержки сайта</a></div>
+                    </div>
+                <div class="footer-section p-3 border-bottom">
+                    <div class="logininfo">
+                        <div class="logininfo">Вы зашли под именем <a href="https://moodle.siriusuniversity.ru/user/profile.php?id=2129" title="Просмотр профиля">Максим Зданович</a> (<a href="https://moodle.siriusuniversity.ru/login/logout.php?sesskey=rGwd7WW1Cw">Выход</a>)</div>
+                    </div>
+                    <div class="tool_usertours-resettourcontainer">
+                    </div>
+        
+                    <div class="tool_dataprivacy"><a href="https://moodle.siriusuniversity.ru/admin/tool/dataprivacy/summary.php">Сводка хранения данных</a></div>
+                    
+<style>
+
+/* ===== ШРИФТ ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+html,
+body,
+input,
+button,
+textarea,
+select,
+.navbar,
+.card,
+.dropdown-menu,
+h1,h2,h3,h4,h5,h6,
+p,
+a,
+span {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+
+/* ===== ОСНОВНОЙ ЦВЕТ ===== */
+
+/* ссылки */
+a {
+    color: #4CBDCF;
+}
+
+a:hover {
+    color: #7814C8;
+}
+
+
+/* кнопки темы */
+.hybtn {
+    background: #4CBDCF !important;
+    border-color: #fff !important;
+}
+
+.hybtn:hover {
+    background: transparent !important;
+    color: #7814C8 !important;
+}
+
+
+/* верхняя линия */
+.header-area {
+    border-top-color: #4CBDCF !important;
+}
+
+
+/* активный пункт меню */
+.main-menu li.active a {
+    color: #4CBDCF !important;
+}
+
+
+/* иконки */
+.item-icon i {
+    background: #4CBDCF !important;
+    border-color: #4CBDCF !important;
+}
+
+
+/* блоки с заливкой */
+.icon-box-content,
+.project-inner:after,
+.course-inner:after,
+.theme-overlay:before {
+ background: #4CBDCF !important;
+}
+
+
+/* кнопка вверх */
+.scrollUp {
+    background: #4CBDCF !important;
+}
+
+/* Логотип */
+.navbar.fixed-top .navbar-brand .logo {
+    max-height: 60px !important;
+    height: 60px !important;
+    padding: 2.5px;
+}
+.navbar-light .nav-link.active {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-color: transparent;
+    color: #4CBDCF !important;
+}
+.navbar-light .nav-link:hover, .navbar-light .nav-link:focus, .navbar-light .langbutton:hover, .navbar-light .langbutton:focus {
+    color: #4bbecf !important;
+    border-color: transparent;
+    background-color: transparent;
+}
+#navbarhy {
+    background-color: #fff;
+}
+</style><script>
+//<![CDATA[
+var require = {
+    baseUrl : 'https://moodle.siriusuniversity.ru/lib/requirejs.php/1789985171/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/lib/jquery/jquery-3.7.1.min',
+        jqueryui: 'https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/lib/jquery/ui-1.13.2/jquery-ui.min',
+        jqueryprivate: 'https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/lib/requirejs/require.min.js"></script>
+<script>
+//<![CDATA[
+M.util.js_pending("core/first");
+require(['core/first'], function() {
+require(['core/prefetch'])
+;
+M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function(amd) {amd.configure({"mathjaxconfig":"\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"ru"}); M.util.js_complete('filter_mathjaxloader/loader');});;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp('ru');
+});;
+M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("80", {"editing":false,"supportscomponents":true,"statekey":"1790334292_1790346241","overriddenStrings":[{"component":"format_topics","key":"sectionavailability_title"},{"component":"format_topics","key":"sectiondelete_title"},{"component":"format_topics","key":"sectionsdelete_title"},{"component":"format_topics","key":"sectionsdelete_info"},{"component":"format_topics","key":"sectionmove_title"},{"component":"format_topics","key":"sectionsavailability_title"},{"component":"format_topics","key":"sectionsmove_title"},{"component":"format_topics","key":"sectionsmove_info"},{"component":"format_topics","key":"selectsection"}]}); M.util.js_complete('core_courseformat/courseeditor');});;
+
+require(['core_courseformat/local/courseindex/placeholder'], function(component) {
+    component.init('course-index-placeholder');
+});
+;
+
+require(['core_courseformat/local/courseindex/drawer'], function(component) {
+    component.init('courseindex');
+});
+;
+M.util.js_pending('core_courseformat/local/content/activity_header'); require(['core_courseformat/local/content/activity_header'], function(amd) {amd.init(); M.util.js_complete('core_courseformat/local/content/activity_header');});;
+
+    require(['core/moremenu'], function(moremenu) {
+        moremenu(document.querySelector('#moremenu-6ab6841c4f6fb-navbar-nav'));
+    });
+;
+
+require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+    var container = $('#nav-notification-popover-container');
+    var controller = new Controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+
+require(
+[
+    'jquery',
+    'core_message/message_popover'
+],
+function(
+    $,
+    Popover
+) {
+    var toggle = $('#message-drawer-toggle-6ab6841c51a236ab6841c506803');
+    Popover.init(toggle);
+});
+;
+
+    require(['core/usermenu'], function(UserMenu) {
+        UserMenu.init();
+    });
+;
+
+require(['theme_boost/drawers']);
+;
+
+require(['theme_boost/drawers']);
+;
+
+require(['theme_boost/footer-popover'], function(FooterPopover) {
+    FooterPopover.init();
+});
+;
+
+require(['jquery', 'core_message/message_drawer'], function($, MessageDrawer) {
+    var root = $('#message-drawer-6ab6841c5296e6ab6841c506804');
+    MessageDrawer.init(root, '6ab6841c5296e6ab6841c506804', false);
+});
+;
+
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+    Drawer.init();
+    M.util.js_complete('theme_boost/loader');
+});
+;
+M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(16655, []); M.util.js_complete('core/notification');});;
+M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+    M.util.js_complete("core/first");
+});
+//]]>
+</script>
+<script>
+//<![CDATA[
+M.yui.add_module({"mod_assign":{"name":"mod_assign","fullpath":"https:\/\/moodle.siriusuniversity.ru\/lib\/javascript.php\/1789985171\/mod\/assign\/module.js","requires":[]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/moodle.siriusuniversity.ru\/lib\/javascript.php\/1789985171\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]}});
+
+//]]>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured"></script>
+<script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/question/type/coderunner/ace/ace.js"></script>
+<script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/question/type/coderunner/ace/ext-language_tools.js"></script>
+<script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/question/type/coderunner/ace/ext-modelist.js"></script>
+<script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/question/type/coderunner/ace/ext-static_highlight.js"></script>
+<script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/theme/almondb/js/splide.min.js"></script>
+<script src="https://moodle.siriusuniversity.ru/lib/javascript.php/1789985171/theme/almondb/js/main.js"></script>
+<script>
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0435 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435","name":"\u0418\u043c\u044f","error":"\u041e\u0448\u0438\u0431\u043a\u0430","info":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f","yes":"\u0414\u0430","no":"\u041d\u0435\u0442","cancel":"\u041e\u0442\u043c\u0435\u043d\u0430","addcomment":"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439...","comments":"\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0438","commentscount":"\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0438 ({$a})","commentsrequirelogin":"\u0414\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0435\u0432 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0432\u043e\u0439\u0442\u0438 \u0432 \u0441\u0438\u0441\u0442\u0435\u043c\u0443.","deletecommentbyon":"\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439, \u0440\u0430\u0437\u043c\u0435\u0449\u0435\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u043c {$a->user} \u0432 {$a->time}","confirm":"\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044c","areyousure":"\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b?","closebuttontitle":"\u0417\u0430\u043a\u0440\u044b\u0442\u044c","unknownerror":"\u041d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u0430\u044f \u043e\u0448\u0438\u0431\u043a\u0430","file":"\u0424\u0430\u0439\u043b","url":"URL","collapseall":"\u0421\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0432\u0441\u0451","expandall":"\u0420\u0430\u0437\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0432\u0441\u0451"},"repository":{"type":"\u0422\u0438\u043f","size":"\u0420\u0430\u0437\u043c\u0435\u0440","invalidjson":"\u041d\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0441\u0442\u0440\u043e\u043a\u0430 JSON","nofilesattached":"\u041d\u0435 \u043f\u0440\u0438\u043a\u0440\u0435\u043f\u043b\u0435\u043d \u043d\u0438 \u043e\u0434\u0438\u043d \u0444\u0430\u0439\u043b","filepicker":"\u0412\u044b\u0431\u043e\u0440 \u0444\u0430\u0439\u043b\u0430","logout":"\u0412\u044b\u0445\u043e\u0434","nofilesavailable":"\u041d\u0435\u0442 \u043d\u0438 \u043e\u0434\u043d\u043e\u0433\u043e \u0444\u0430\u0439\u043b\u0430","norepositoriesavailable":"\u041a \u0441\u043e\u0436\u0430\u043b\u0435\u043d\u0438\u044e, \u043d\u0438 \u043e\u0434\u043d\u043e \u0438\u0437 \u0412\u0430\u0448\u0438\u0445 \u0442\u0435\u043a\u0443\u0449\u0438\u0445 \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449 \u0444\u0430\u0439\u043b\u043e\u0432 \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0444\u0430\u0439\u043b\u044b \u0432 \u0437\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u043e\u043c \u0444\u043e\u0440\u043c\u0430\u0442\u0435.","fileexistsdialogheader":"\u0424\u0430\u0439\u043b \u0441\u043e\u0437\u0434\u0430\u043d","fileexistsdialog_editor":"\u0424\u0430\u0439\u043b \u0441 \u044d\u0442\u0438\u043c \u0438\u043c\u0435\u043d\u0435\u043c \u0443\u0436\u0435 \u0431\u044b\u043b \u043f\u0440\u0438\u043a\u0440\u0435\u043f\u043b\u0435\u043d \u043a \u0440\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u0443\u0435\u043c\u043e\u043c\u0443 \u0442\u0435\u043a\u0441\u0442\u0443","fileexistsdialog_filemanager":"\u0424\u0430\u0439\u043b \u0441 \u044d\u0442\u0438\u043c \u0438\u043c\u0435\u043d\u0435\u043c \u0443\u0436\u0435 \u0431\u044b\u043b \u043f\u0440\u0438\u043a\u0440\u0435\u043f\u043b\u0435\u043d","renameto":"\u041f\u0435\u0440\u0435\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u0442\u044c \u0432 \u00ab{$a}\u00bb","referencesexist":"\u041d\u0430 \u044d\u0442\u043e\u0442 \u0444\u0430\u0439\u043b \u0435\u0441\u0442\u044c \u0441\u0441\u044b\u043b\u043a\u0438: {$a}","select":"\u0412\u044b\u0431\u0440\u0430\u0442\u044c"},"admin":{"confirmdeletecomments":"\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b \u0432 \u0442\u043e\u043c, \u0447\u0442\u043e \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u0442\u0435\u0441\u044c \u0443\u0434\u0430\u043b\u0438\u0442\u044c \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0435 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0438?","confirmation":"\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435"},"debug":{"debuginfo":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e\u0431 \u043e\u0442\u043b\u0430\u0434\u043a\u0435","line":"\u0421\u0442\u0440\u043e\u043a\u0430","stacktrace":"\u0422\u0440\u0430\u0441\u0441\u0438\u0440\u043e\u0432\u043a\u0438 \u0441\u0442\u0435\u043a\u0430"},"langconfig":{"labelsep":":"}};
+//]]>
+</script>
+<script>
+//<![CDATA[
+(function() {M.util.help_popups.setup(Y);
+ M.util.js_pending('random6ab6841c506808'); Y.use('mod_assign', function(Y) { M.mod_assign.init_tree(Y, true, "assign_files_tree6ab6841c506807");  M.util.js_complete('random6ab6841c506808'); });
+ M.util.js_pending('random6ab6841c506809'); Y.on('domready', function() {  M.util.js_pending('random6ab6841c506809'); Y.use('core_comment', function(Y) { M.core_comment.init(Y, {"client_id":"6ab6841c5724c","commentarea":"submission_comments","itemid":"58988","page":0,"courseid":"80","contextid":16655,"component":"assignsubmission_comments","notoggle":false,"autostart":false});  M.util.js_complete('random6ab6841c506809'); });  M.util.js_complete('random6ab6841c506809'); });
+ M.util.js_pending('random6ab6841c5068010'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random6ab6841c5068010'); });
+})();
+//]]>
+</script>
+
+                </div>
+                <div class="footer-section p-3">
+                    <div>На платформе <a href="https://moodle.com">Moodle</a></div>
+                </div>
+            </div>
+        
+            <div class="footer-content-debugging footer-dark bg-dark text-light">
+                <div class="container-fluid footer-dark-inner">
+                    
+                </div>
+            </div>
+        </footer>
+        <div id="page-footer-frontpage">
+                <section id="block20">
+                    <footer class="footer-header-underline hy-pt-60 hy-pb-20 black-bg"  >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="footer-widget">
+                                        <div class="footer-logo">
+                                                <img src="https://moodle.siriusuniversity.ru/pluginfile.php/1/core_admin/logocompact/300x300/1789985171/%D0%9B%D0%BE%D0%B3%D0%BE.png" alt="&quot;Sirius LMS&quot;">
+                
+                
+                                            <div class="footer-dec">
+                                            <p>Цифровая образовательная платформа Научно-технологического университета «Сириус»</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 ">
+                                    <div class="footer-widget">
+                                        <div class="widget-title footer-header-underline">
+                                            <h6>Контакты</h6>
+                                        </div>
+                                        <div class="address-line">
+                                            <div class="text_to_html"><p class="text text--u-igjx5cq3b"><span style="font-size:0.8rem;">Техническая поддержка</span></p><p class="text text--u-igjx5cq3b"><span style="font-size:0.8rem;">Email: <a href="mailto:moodlesupport@siriusuniversity.ru">moodlesupport@siriusuniversity.ru </a></span></p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="footer-widget">
+                                        <div class="widget-title footer-header-underline">
+                                            <h6>АНОО ВО «УНИВЕРСИТЕТ «СИРИУС»</h6>
+                                        </div>
+                                        <ul class="footer-menu">
+                                            <li><a class="text-decoration-none" href="https://siriusuniversity.ru/" target="_blank">Сайт университета</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </div>
+                    </footer>
+                    <div class="copyright-area black-bg">
+                        <div class="container">
+                            <div class="row ">
+                                <div class="col-12 text-center hy-pt-10 social-links">
+                                    
+                                </div>
+                                <div class="col-12 text-center">
+                                    <div class="copyright-area">
+                                        <div class="small">
+                                            <div class="text_to_html">© 2019-2026 Научно-технологический университет «Сириус». </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="theme-info">
+                        </div>
+                    </div>
+                </section>
+        </div>
+    </div>
+    <div
+    id="drawer-6ab6841c5296e6ab6841c506804"
+    class=" drawer bg-white hidden"
+    aria-expanded="false"
+    aria-hidden="true"
+    data-region="right-hand-drawer"
+    role="region"
+    tabindex="0"
+>
+            <div id="message-drawer-6ab6841c5296e6ab6841c506804" class="message-app" data-region="message-drawer" role="region">
+            <div class="closewidget text-right pr-2">
+                <a class="text-dark btn-link" data-action="closedrawer" href="#"
+                   title="Закрыть" aria-label="Закрыть"
+                >
+                    <i class="icon fa fa-window-close fa-fw " aria-hidden="true"  ></i>
+                </a>
+            </div>
+            <div class="header-container position-relative" data-region="header-container">
+                <div class="hidden border-bottom p-1 px-sm-2" aria-hidden="true" data-region="view-contacts">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch">
+                            <a class="h-100 d-flex align-items-center mr-2" href="#" data-route-back role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"  ></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"  ></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Собеседники
+                        </div>
+                        <div class="ml-auto">
+                            <a href="#" data-route="view-search" role="button" aria-label="Поиск">
+                                <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>                
+                <div
+                    class="hidden bg-white position-relative border-bottom p-1 px-sm-2"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                >
+                    <div class="hidden" data-region="header-content"></div>
+                    <div class="hidden" data-region="header-edit-mode">
+                        
+                        <div class="d-flex p-2 align-items-center">
+                            Выбранные сообщения:
+                            <span class="ml-1" data-region="message-selected-court">1</span>
+                            <button type="button" class="ml-auto close" aria-label="Отменить выбор сообщения"
+                                data-action="cancel-edit-mode">
+                                    <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div data-region="header-placeholder">
+                        <div class="d-flex">
+                            <div
+                                class="ml-2 rounded-circle bg-pulse-grey align-self-center"
+                                style="height: 38px; width: 38px"
+                            >
+                            </div>
+                            <div class="ml-2 " style="flex: 1">
+                                <div
+                                    class="mt-1 bg-pulse-grey w-75"
+                                    style="height: 16px;"
+                                >
+                                </div>
+                            </div>
+                            <div
+                                class="ml-2 bg-pulse-grey align-self-center"
+                                style="height: 16px; width: 20px"
+                            >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="hidden position-absolute z-index-1"
+                        data-region="confirm-dialogue-container"
+                        style="top: 0; bottom: -1px; right: 0; left: 0; background: rgba(0,0,0,0.3);"
+                    ></div>
+                </div>                <div class="border-bottom p-1 px-sm-2" aria-hidden="false"  data-region="view-overview">
+                    <div class="d-flex align-items-center">
+                        <div class="input-group simplesearchform">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Поиск"
+                                aria-label="Поиск"
+                                data-region="view-overview-search-input"
+                            >
+                            <div class="input-group-append">
+                                <span class="icon-no-margin btn btn-submit">
+                                    <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ml-2">
+                            <a
+                                href="#"
+                                data-route="view-settings"
+                                data-route-param="2129"
+                                aria-label="Настройки"
+                                role="button"
+                            >
+                                <i class="icon fa fa-cog fa-fw " aria-hidden="true"  ></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-right mt-sm-3">
+                        <a href="#" data-route="view-contacts" role="button">
+                            <i class="icon fa fa-user fa-fw " aria-hidden="true"  ></i>
+                            Собеседники
+                            <span
+                                class="badge badge-primary bg-primary ml-2 hidden"
+                                data-region="contact-request-count"
+                            >
+                                <span aria-hidden="true">0</span>
+                                <span class="sr-only">Ожидающих запросов на добавление в собеседники: 0</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden border-bottom p-1 px-sm-2 view-search"  aria-hidden="true" data-region="view-search">
+                    <div class="d-flex align-items-center">
+                        <a
+                            class="mr-2 align-self-stretch d-flex align-items-center"
+                            href="#"
+                            data-route-back
+                            data-action="cancel-search"
+                            role="button"
+                        >
+                            <div class="icon-back-in-drawer">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"  ></i></span>
+                                <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"  ></i></span>
+                            </div>
+                            <div class="icon-back-in-app">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i></span>
+                            </div>                        </a>
+                        <div class="input-group simplesearchform">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Поиск"
+                                aria-label="Поиск"
+                                data-region="search-input"
+                            >
+                            <div class="input-group-append">
+                                <button
+                                    class="btn btn-submit icon-no-margin"
+                                    type="button"
+                                    data-action="search"
+                                    aria-label="Поиск"
+                                >
+                                    <span data-region="search-icon-container">
+                                        <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                                    </span>
+                                    <span class="hidden" data-region="loading-icon-container">
+                                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="hidden border-bottom p-1 px-sm-2 pb-sm-3" aria-hidden="true" data-region="view-settings">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch" >
+                            <a class="h-100 d-flex mr-2 align-items-center" href="#" data-route-back role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"  ></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"  ></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Настройки
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body-container position-relative" data-region="body-container">
+                
+                <div
+                    class="hidden"
+                    data-region="view-contact"
+                    aria-hidden="true"
+                >
+                    <div class="p-2 pt-3" data-region="content-container"></div>
+                </div>                <div class="hidden h-100" data-region="view-contacts" aria-hidden="true" data-user-id="2129">
+                    <div class="d-flex flex-column h-100">
+                        <div class="p-3 border-bottom">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a
+                                        id="contacts-tab-6ab6841c5296e6ab6841c506804"
+                                        class="nav-link active"
+                                        href="#contacts-tab-panel-6ab6841c5296e6ab6841c506804"
+                                        data-toggle="tab"
+                                        data-action="show-contacts-section"
+                                        role="tab"
+                                        aria-controls="contacts-tab-panel-6ab6841c5296e6ab6841c506804"
+                                        aria-selected="true"
+                                    >
+                                        Собеседники
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        id="requests-tab-6ab6841c5296e6ab6841c506804"
+                                        class="nav-link"
+                                        href="#requests-tab-panel-6ab6841c5296e6ab6841c506804"
+                                        data-toggle="tab"
+                                        data-action="show-requests-section"
+                                        role="tab"
+                                        aria-controls="requests-tab-panel-6ab6841c5296e6ab6841c506804"
+                                        aria-selected="false"
+                                    >
+                                        Запросы
+                                        <span class="badge badge-primary bg-primary ml-2 hidden"
+                                            data-region="contact-request-count"
+                                        >
+                                            <span aria-hidden="true">0</span>
+                                            <span class="sr-only">Ожидающих запросов на добавление в собеседники: 0</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content d-flex flex-column h-100">
+                                            <div
+                    class="tab-pane fade show active h-100 lazy-load-list"
+                    aria-live="polite"
+                    data-region="lazy-load-list"
+                    data-user-id="2129"
+                                        id="contacts-tab-panel-6ab6841c5296e6ab6841c506804"
+                    data-section="contacts"
+                    role="tabpanel"
+                    aria-labelledby="contacts-tab-6ab6841c5296e6ab6841c506804"
+
+                >
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        Нет контактов
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                        
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                    </div>
+                </div>
+                
+                                            <div
+                    class="tab-pane fade h-100 lazy-load-list"
+                    aria-live="polite"
+                    data-region="lazy-load-list"
+                    data-user-id="2129"
+                                        id="requests-tab-panel-6ab6841c5296e6ab6841c506804"
+                    data-section="requests"
+                    role="tabpanel"
+                    aria-labelledby="requests-tab-6ab6841c5296e6ab6841c506804"
+
+                >
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        Нет запросов на добавление в собеседники
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                        
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div
+                    class="view-conversation hidden h-100"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                    data-user-id="2129"
+                    data-midnight="1790283600"
+                    data-message-poll-min="10"
+                    data-message-poll-max="120"
+                    data-message-poll-after-max="300"
+                    style="overflow-y: auto; overflow-x: hidden"
+                >
+                    <div class="position-relative h-100" data-region="content-container" style="overflow-y: auto; overflow-x: hidden">
+                        <div class="content-message-container hidden h-100 px-2 pt-0" data-region="content-message-container" role="log" style="overflow-y: auto; overflow-x: hidden">
+                            <div class="py-3 sticky-top z-index-1 border-bottom text-center hidden" data-region="contact-request-sent-message-container">
+                                <p class="m-0">Запрос на добавление в собеседники отправлен</p>
+                                <p class="font-italic font-weight-light" data-region="text"></p>
+                            </div>
+                            <div class="p-3 text-center hidden" data-region="self-conversation-message-container">
+                                <p class="m-0">Личное пространство</p>
+                                <p class="font-italic font-weight-light" data-region="text">Сохраните черновики сообщений, ссылок, заметок и т.п. К ним можно будет вернуться позже.</p>
+                           </div>
+                            <div class="hidden text-center p-3" data-region="more-messages-loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</div>
+                        </div>
+                        <div class="p-4 w-100 h-100 hidden position-absolute z-index-1" data-region="confirm-dialogue-container" style="top: 0; background: rgba(0,0,0,0.3);">
+                            
+                            <div class="p-3 bg-white" data-region="confirm-dialogue" role="alert">
+                                <p class="text-muted" data-region="dialogue-text"></p>
+                                <div class="mb-2 custom-control custom-checkbox hidden" data-region="delete-messages-for-all-users-toggle-container">
+                                    <input type="checkbox" class="custom-control-input" id="delete-messages-for-all-users" data-region="delete-messages-for-all-users-toggle">
+                                    <label class="custom-control-label text-muted" for="delete-messages-for-all-users">
+                                        Удалить у меня и у всех остальных
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-block">
+                                    <span data-region="dialogue-button-text">Блок</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-unblock">
+                                    <span data-region="dialogue-button-text">Разблокировать</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-remove-contact">
+                                    <span data-region="dialogue-button-text">Удалить</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-add-contact">
+                                    <span data-region="dialogue-button-text">Добавить</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-selected-messages">
+                                    <span data-region="dialogue-button-text">Удалить</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-conversation">
+                                    <span data-region="dialogue-button-text">Удалить</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="request-add-contact">
+                                    <span data-region="dialogue-button-text">Отправить запрос на добавление в собеседники</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="accept-contact-request">
+                                    <span data-region="dialogue-button-text">Принять и добавить в контакты</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-block hidden" data-action="decline-contact-request">
+                                    <span data-region="dialogue-button-text">Отказаться</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block" data-action="okay-confirm">OK</button>
+                                <button type="button" class="btn btn-secondary btn-block" data-action="cancel-confirm">Отмена</button>
+                            </div>
+                        </div>
+                        <div class="px-2 pb-2 pt-0" data-region="content-placeholder">
+                            <div class="h-100 d-flex flex-column">
+                                <div
+                                    class="px-2 pb-2 pt-0 bg-light h-100"
+                                    style="overflow-y: auto"
+                                >
+                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                </div>
+                            </div>                        </div>
+                    </div>
+                </div>
+                
+                <div
+                    class="hidden"
+                    aria-hidden="true"
+                    data-region="view-group-info"
+                >
+                    <div
+                        class="pt-3 h-100 d-flex flex-column"
+                        data-region="group-info-content-container"
+                        style="overflow-y: auto"
+                    ></div>
+                </div>                <div class="h-100 view-overview-body" aria-hidden="false" data-region="view-overview"  data-user-id="2129">
+                    <div id="message-drawer-view-overview-container-6ab6841c5296e6ab6841c506804" class="d-flex flex-column h-100" style="overflow-y: auto">
+                            
+                            
+                            <div
+                                class="section border-0 card rounded-0"
+                                data-region="view-overview-favourites"
+                            >
+                                <div id="view-overview-favourites-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-favourites-target-6ab6841c5296e6ab6841c506804"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-favourites-target-6ab6841c5296e6ab6841c506804"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Помеченные</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container">
+                                            (<span aria-hidden="true" data-region="section-total-count"></span><span class="sr-only">Всего бесед: </span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                                        </span>
+                                        <span
+                                            class="hidden badge badge-pill badge-primary ml-auto bg-primary"
+                                            data-region="section-unread-count"
+                                        >
+                                            <span aria-hidden="true"></span>
+                                            <span class="sr-only">Непрочитанных бесед: </span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="2129"
+                                            id="view-overview-favourites-target-6ab6841c5296e6ab6841c506804"
+            aria-labelledby="view-overview-favourites-toggle"
+            data-parent="#message-drawer-view-overview-container-6ab6841c5296e6ab6841c506804"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">Нет помеченных бесед</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div
+                                class="section border-0 card rounded-0"
+                                data-region="view-overview-group-messages"
+                            >
+                                <div id="view-overview-group-messages-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-group-messages-target-6ab6841c5296e6ab6841c506804"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-group-messages-target-6ab6841c5296e6ab6841c506804"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Группа</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container">
+                                            (<span aria-hidden="true" data-region="section-total-count"></span><span class="sr-only">Всего бесед: </span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                                        </span>
+                                        <span
+                                            class="hidden badge badge-pill badge-primary ml-auto bg-primary"
+                                            data-region="section-unread-count"
+                                        >
+                                            <span aria-hidden="true"></span>
+                                            <span class="sr-only">Непрочитанных бесед: </span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="2129"
+                                            id="view-overview-group-messages-target-6ab6841c5296e6ab6841c506804"
+            aria-labelledby="view-overview-group-messages-toggle"
+            data-parent="#message-drawer-view-overview-container-6ab6841c5296e6ab6841c506804"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">Нет групповых бесед</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div
+                                class="section border-0 card rounded-0"
+                                data-region="view-overview-messages"
+                            >
+                                <div id="view-overview-messages-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-messages-target-6ab6841c5296e6ab6841c506804"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-messages-target-6ab6841c5296e6ab6841c506804"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Личное</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container">
+                                            (<span aria-hidden="true" data-region="section-total-count"></span><span class="sr-only">Всего бесед: </span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                                        </span>
+                                        <span
+                                            class="hidden badge badge-pill badge-primary ml-auto bg-primary"
+                                            data-region="section-unread-count"
+                                        >
+                                            <span aria-hidden="true"></span>
+                                            <span class="sr-only">Непрочитанных бесед: </span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="2129"
+                                            id="view-overview-messages-target-6ab6841c5296e6ab6841c506804"
+            aria-labelledby="view-overview-messages-toggle"
+            data-parent="#message-drawer-view-overview-container-6ab6841c5296e6ab6841c506804"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">Нет личных бесед</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+                
+                <div
+                    data-region="view-search"
+                    aria-hidden="true"
+                    class="h-100 hidden"
+                    data-user-id="2129"
+                    data-users-offset="0"
+                    data-messages-offset="0"
+                    style="overflow-y: auto"
+                    
+                >
+                    <div class="hidden" data-region="search-results-container" style="overflow-y: auto">
+                        
+                        <div class="d-flex flex-column">
+                            <div class="mb-3 bg-white" data-region="all-contacts-container">
+                                <div data-region="contacts-container"  class="pt-2">
+                                    <h4 class="h6 px-2">Собеседники</h4>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div data-region="non-contacts-container" class="pt-2 border-top">
+                                    <h4 class="h6 px-2">Собеседники отсутствуют</h4>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-users">
+                                        <span data-region="button-text">Загрузить больше</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bg-white" data-region="messages-container">
+                                <h4 class="h6 px-2 pt-2">Сообщения</h4>
+                                <div class="list-group" data-region="list"></div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-messages">
+                                        <span data-region="button-text">Загрузить больше</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="hidden p-3 text-center" data-region="no-results-container">Нет результатов</p>
+                        </div>                    </div>
+                    <div class="hidden" data-region="loading-placeholder">
+                        <div class="text-center pt-3 icon-size-4"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</div>
+                    </div>
+                    <div class="p-3 text-center" data-region="empty-message-container">
+                        <p>Поиск пользователей и сообщений</p>
+                    </div>
+                </div>                
+                <div class="h-100 hidden bg-white" aria-hidden="true" data-region="view-settings">
+                    <div class="hidden" data-region="content-container">
+                        
+                        <div data-region="settings" class="p-3">
+                            <h3 class="h6 font-weight-bold">Приватность</h3>
+                            <p>Вы можете ограничить круг лиц, которые могут отправлять вам сообщения</p>
+                            <div data-preference="blocknoncontacts" class="mb-3">
+                                <fieldset>
+                                    <legend class="sr-only">Принимать сообщения от:</legend>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input
+                                                type="radio"
+                                                name="message_blocknoncontacts"
+                                                class="custom-control-input"
+                                                id="block-noncontacts-6ab6841c5296e6ab6841c506804-1"
+                                                value="1"
+                                            >
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-6ab6841c5296e6ab6841c506804-1">
+                                                Только мои контакты
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input
+                                                type="radio"
+                                                name="message_blocknoncontacts"
+                                                class="custom-control-input"
+                                                id="block-noncontacts-6ab6841c5296e6ab6841c506804-0"
+                                                value="0"
+                                            >
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-6ab6841c5296e6ab6841c506804-0">
+                                                Мои собеседники и любой в моих курсах
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input
+                                                type="radio"
+                                                name="message_blocknoncontacts"
+                                                class="custom-control-input"
+                                                id="block-noncontacts-6ab6841c5296e6ab6841c506804-2"
+                                                value="2"
+                                            >
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-6ab6841c5296e6ab6841c506804-2">
+                                                Любой на сайте
+                                            </label>
+                                        </div>
+                                </fieldset>
+                            </div>
+                        
+                            <div class="hidden" data-region="notification-preference-container">
+                                <h3 class="mb-2 mt-4 h6 font-weight-bold">Настройки уведомлений</h3>
+                            </div>
+                        
+                            <h3 class="mb-2 mt-4 h6 font-weight-bold">Основные</h3>
+                            <div data-preference="entertosend">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="enter-to-send-6ab6841c5296e6ab6841c506804" checked>
+                                    <label class="custom-control-label" for="enter-to-send-6ab6841c5296e6ab6841c506804">
+                                        Использовать Enter для отправки
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-region="placeholder-container">
+                        
+                        <div class="d-flex flex-column p-3">
+                            <div class="w-25 bg-pulse-grey h6" style="height: 18px"></div>
+                            <div class="w-75 bg-pulse-grey mb-4" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-50 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-4">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-25 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                        </div>                    </div>
+                </div>            </div>
+            <div class="footer-container position-relative" data-region="footer-container">
+                
+                <div
+                    class="hidden border-top bg-white position-relative"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                    data-enter-to-send="1"
+                >
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-container">
+                        
+                            <div
+                                class="emoji-auto-complete-container w-100 hidden"
+                                data-region="emoji-auto-complete-container"
+                                aria-live="polite"
+                                aria-hidden="true"
+                            >
+                            </div>
+                        <div class="d-flex mt-sm-1">
+                            <textarea
+                                dir="auto"
+                                data-region="send-message-txt"
+                                class="form-control bg-light"
+                                rows="3"
+                                data-auto-rows
+                                data-min-rows="3"
+                                data-max-rows="5"
+                                aria-label="Напишите сообщение..."
+                                placeholder="Напишите сообщение..."
+                                style="resize: none"
+                                maxlength="4096"
+                            ></textarea>
+                        
+                            <div class="position-relative d-flex flex-column">
+                                    <div
+                                        data-region="emoji-picker-container"
+                                        class="emoji-picker-container hidden"
+                                        aria-hidden="true"
+                                    >
+                                        
+                                        <div
+                                            data-region="emoji-picker"
+                                            class="card shadow emoji-picker"
+                                        >
+                                            <div class="card-header px-1 pt-1 pb-0 d-flex justify-content-between flex-shrink-0">
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0 selected"
+                                                    data-action="show-category"
+                                                    data-category="Recent"
+                                                    title="Последний"
+                                                >
+                                                    <i class="icon fa fa-clock-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Smileys & Emotion"
+                                                    title="Смайлики и эмоции"
+                                                >
+                                                    <i class="icon fa fa-smile-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="People & Body"
+                                                    title="Люди и тело"
+                                                >
+                                                    <i class="icon fa fa-male fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Animals & Nature"
+                                                    title="Животные и природа"
+                                                >
+                                                    <i class="icon fa fa-leaf fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Food & Drink"
+                                                    title="Еда и питьё"
+                                                >
+                                                    <i class="icon fa fa-cutlery fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Travel & Places"
+                                                    title="Путешествия и места"
+                                                >
+                                                    <i class="icon fa fa-plane fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Activities"
+                                                    title="Мероприятия"
+                                                >
+                                                    <i class="icon fa fa-futbol-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Objects"
+                                                    title="Предметы"
+                                                >
+                                                    <i class="icon fa fa-lightbulb-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Symbols"
+                                                    title="Символы"
+                                                >
+                                                    <i class="icon fa fa-heart fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Flags"
+                                                    title="Флаги"
+                                                >
+                                                    <i class="icon fa fa-flag fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                            </div>
+                                            <div class="card-body p-2 d-flex flex-column overflow-hidden">
+                                                <div class="input-group mb-1 flex-shrink-0">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text pr-0 bg-white text-muted">
+                                                            <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                                                        </span>
+                                                    </div>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control border-left-0"
+                                                        placeholder="Найти"
+                                                        aria-label="Найти"
+                                                        data-region="search-input"
+                                                    >
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto emojis-container h-100" data-region="emojis-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto search-results-container h-100 hidden" data-region="search-results-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="card-footer d-flex flex-shrink-0"
+                                                data-region="footer"
+                                            >
+                                                <div class="emoji-preview" data-region="emoji-preview"></div>
+                                                <div data-region="emoji-short-name" class="emoji-short-name text-muted text-wrap ml-2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="btn btn-link btn-icon icon-size-3 ml-1"
+                                        aria-label="Переключить выбор эмодзи"
+                                        data-action="toggle-emoji-picker"
+                                    >
+                                        <i class="icon fa fa-smile-o fa-fw " aria-hidden="true"  ></i>
+                                    </button>
+                                <button
+                                    class="btn btn-link btn-icon icon-size-3 ml-1 mt-auto"
+                                    aria-label="Отправить сообщение"
+                                    data-action="send-message"
+                                >
+                                    <span data-region="send-icon-container"><i class="icon fa fa-paper-plane fa-fw " aria-hidden="true"  ></i></span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-edit-mode-container">
+                        
+                        <div class="d-flex p-3 justify-content-end">
+                            <button
+                                class="btn btn-link btn-icon my-1 icon-size-4"
+                                data-action="delete-selected-messages"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Удалить выбранные сообщения"
+                            >
+                                <span data-region="icon-container"><i class="icon fa fa-trash fa-fw " aria-hidden="true"  ></i></span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                                <span class="sr-only">Удалить выбранные сообщения</span>
+                            </button>
+                        </div>                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-contact-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p data-region="title"></p>
+                            <p class="text-muted" data-region="text"></p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-add-contact">
+                                <span data-region="dialogue-button-text">Отправить запрос на добавление в собеседники</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-unblock-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">Вы заблокировали этого пользователя</p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-unblock">
+                                <span data-region="dialogue-button-text">Разблокировать пользователя</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Загрузка" role="img" aria-label="Загрузка"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-unable-to-message">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">Вы не можете отправить сообщение этому пользователю</p>
+                        </div>
+                    </div>
+                    <div class="p-sm-2" data-region="placeholder-container">
+                        <div class="d-flex">
+                            <div class="bg-pulse-grey w-100" style="height: 80px"></div>
+                            <div class="mx-2 mb-2 align-self-end bg-pulse-grey" style="height: 20px; width: 20px"></div>
+                        </div>                    </div>
+                    <div
+                        class="hidden position-absolute z-index-1"
+                        data-region="confirm-dialogue-container"
+                        style="top: -1px; bottom: 0; right: 0; left: 0; background: rgba(0,0,0,0.3);"
+                    ></div>
+                </div>                    <div data-region="view-overview" class="text-center">
+                        <a href="https://moodle.siriusuniversity.ru/message/index.php">
+                            Смотреть все
+                        </a>
+                    </div>
+            </div>
+        </div>
+
+</div>
+</div>
+
+
+</body></html>
